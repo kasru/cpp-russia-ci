@@ -7,7 +7,8 @@ if [[ "$(uname -s)" == 'Darwin' ]]; then
     brew update || brew update
     brew outdated pyenv || brew upgrade pyenv
     brew install pyenv-virtualenv
-    brew install cmake || true
+    #brew install cmake || true
+    brew upgrade cmake || true
 
     if which pyenv > /dev/null; then
         eval "$(pyenv init -)"
@@ -27,7 +28,13 @@ if [[ "$(uname -s)" == 'Linux' ]]; then
     CXX=$CXX_COMPILER
 fi
 
-pip install --user conan
+if [[ "$(uname -s)" == 'Linux' ]]; then
+   PIP_USER_FLAG="--user"
+else
+   PIP_USER_FLAG=""
+fi
+
+pip install $PIP_USER_FLAG conan
 conan remote add conan.io https://server.conan.io false
 
 conan user
