@@ -2,10 +2,10 @@ dist: trusty
 language: cpp
 
 install:
-  - ./.travis/install.sh
+  - bash ./.travis/install.sh
 
 script:
-  - ./.travis/run.sh
+  - bash ./.travis/run.sh
 
 
 env:
