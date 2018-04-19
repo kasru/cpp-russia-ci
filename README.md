@@ -1,1 +1,1 @@
-"# cpp-russia-ci" 
+"# cpp-russia-ci 2018" 
