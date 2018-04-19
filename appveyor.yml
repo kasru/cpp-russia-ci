@@ -28,4 +28,4 @@ environment:
     - TOOLCHAIN_VERSION: 11
       BUILD_TYPE: Debug
     - TOOLCHAIN_VERSION: 10
-BUILD_TYPE: Debug
+      BUILD_TYPE: Debug
