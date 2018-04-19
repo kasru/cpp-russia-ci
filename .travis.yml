@@ -10,7 +10,7 @@ script:
   env:
    - COMPILER=g++-6
 
-   addon:
+   addons:
     apt:
       sources:
       - ubuntu-toolchain-r-test
