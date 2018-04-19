@@ -1,11 +1,20 @@
-﻿# CMakeList.txt : CMake project for cpp-russia-ci, include source and define
-# project specific logic here.
-#
-cmake_minimum_required (VERSION 3.8)
+﻿cmake_minimum_required (VERSION 3.8)
 
-# Add source to this project's executable.
-add_executable (cpprussiaci 
-src/main.cpp
+project(hello CXX)
+
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
+include_directories(include)
+
+set(${PROJECT_NAME}_SRC
+	src/hello.cpp
 )
 
-# TODO: Add tests and install targets if needed.
+add_library(${PROJECT_NAME} ${${PROJECT_NAME}_SRC})
+
+set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 14)
+
+enable_testing()
+add_subdirectory(test)
+
