@@ -1,0 +1,53 @@
+before_script:
+  - apt update && apt install -y cmake python-pip python-dev
+  - pip install conan
+  - export CONAN_USER_HOME=$(pwd)
+  - conan user
+
+stages:
+  - build
+  - deploy
+
+build:gcc-4:
+  stage: build
+  image: gcc:4
+  script:
+    - conan create . cppconf/test --build=missing
+  tags:
+    - docker
+  artifacts:
+    paths:
+      - .conan/data/hello
+
+build:gcc-5:
+  stage: build
+  image: gcc:5
+  script:
+    - conan create . cppconf/test --build=missing
+  tags:
+    - docker
+  artifacts:
+    paths:
+      - .conan/data/hello
+
+build:gcc-6:
+  stage: build
+  image: gcc:6
+  script:
+    - conan create . cppconf/test --build=missing
+  tags:
+    - docker
+  artifacts:
+    paths:
+      - .conan/data/hello
+
+build:clang-3.9:
+  stage: build
+  image: walberla/buildenv-ubuntu-clang:3.9
+  script:
+    - conan create . cppconf/test --build=missing
+  tags:
+    - docker
+  artifacts:
+    paths:
+      - .conan/data/hello
