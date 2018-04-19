@@ -3,6 +3,17 @@ language: cpp
 
 script:
   - mkdir build && cd build
-  - cmake ..
+  - cmake .. -DCMAKE_CXX_COMPILER=g++-6
   - cmake --build .
   - ./cpprussiaci
+
+  env:
+   - COMPILER=g++-6
+
+   addon:
+    apt:
+      sources:
+      - ubuntu-toolchain-r-test
+      packages:
+      - g++-6
+
