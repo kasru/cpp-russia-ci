@@ -6,7 +6,7 @@ class HelloConan(ConanFile):
     url = "https://github.com/kasru/cpp-russia-ci"
     name = "hello"
     version = "0.1"
-    exports = "include/*", "src/*", "CMakeLists.txt"
+    exports = "include/*", "src/*", "test/*", "CMakeLists.txt"
     settings = "os", "compiler", "arch", "build_type"
     generators = "cmake"
 
